@@ -1,379 +1,234 @@
-# Qadam — персональный маршрут поступления.
+# Qadam — personal admissions route.
 
-Проект для **LOCUS Startup Hackathon 2026, кейс 02 «Персональный маршрут поступления»**.
-Код кейса при сабмите: `LOCUSCASE2`.
+A project for **LOCUS Startup Hackathon 2026, case 02 "Personal Admissions Route"**.
+Submission code: `LOCUSCASE2`.
 
-**Qadam** (қадам — «шаг») превращает короткую анкету абитуриента в маршрут: куда
-поступать, почему именно этот вариант подходит и что сделать следующим шагом.
+**Qadam** (қадам — "step") turns a short admissions questionnaire into a route: where to apply, why that option fits, and what to do next.
 
-Интерфейс на **казахском и русском**, светлая и тёмная тема, 336 программ в
-23 странах, подбор стипендий, календарь дедлайнов, разбор мотивационного эссе
-и study plan, рекомендации по активностям.
+The interface is available in **Kazakh and Russian**, with light and dark themes. It covers 336 programs in 23 countries, scholarship matching, a deadline calendar, feedback on motivation essays and study plans, and recommendations for extracurricular activities.
 
-- **Демо:** https://locus-hackathon-psi.vercel.app/
-- **Код:** https://github.com/yarmolenko08diana/LOCUS-HACKATHON
-- **Языки:** қазақша и русский. **Темы:** светлая, тёмная, как в системе.
+- **Demo:** https://locus-hackathon-psi.vercel.app/
+- **Code:** https://github.com/yarmolenko08diana/LOCUS-HACKATHON
+- **Languages:** Kazakh and Russian. **Themes:** light, dark, and system default.
 
 ---
 
-## 1. Задача
+## 1. The problem
 
-Поступление — это десятки решений: направление, страна, университет, экзамены,
-документы, дедлайны, активности. Информация разрознена, советы слишком общие,
-и абитуриент не понимает двух вещей: **что подходит именно ему** и **что делать
-прямо сейчас**.
+Applying to university involves dozens of decisions: field of study, country, university, entrance exams, documents, deadlines, and activities. The information is scattered, the advice is too generic, and applicants can't answer two questions: **what fits them specifically** and **what to do right now**.
 
-Существующие сервисы дают либо каталог вузов, либо чат, который отвечает общими
-словами. Ни то, ни другое не доводит человека до поданной заявки.
+Existing services offer either a catalog of universities or a chat that replies in general terms. Neither takes a person all the way to a submitted application.
 
-## 2. Решение
+## 2. The solution
 
-Один связный сценарий из пяти шагов, а не набор отдельных экранов. Пройти его
-можно с нуля или открыть **один из трёх готовых примеров** — с высокими,
-средними и низкими шансами, — чтобы сразу увидеть, как профиль влияет на выдачу.
+A single connected five-step flow rather than a set of separate screens. Users can go through it from scratch or open **one of three ready-made examples** — with high, medium, and low chances — to see how the profile affects the results.
 
-| Шаг | Что получает пользователь |
+| Step | What the user gets |
 | --- | --- |
-| 1. Профиль | Анкета из 8 экранов: этап учёбы, интересы, школьная система и баллы, языки, экзамены, достижения, страны, бюджет и приоритеты. У достижения указывается не только масштаб и результат, но и **вид**: научная статья, доклад на конференции, патент, стажировка в лаборатории — это разные веса. Хакатоны делятся по формату (классический 24–48 часов, онлайн, корпоративный, тематический, CTF), конкурсы — по типу состязания (спортивное программирование, научные работы, кейс-чемпионат, питч-сессия), а масштаб подписан словами этого типа: не «школьный», а «локальный: внутри школы или вуза» |
-| 2. Диагностика | Резюме профиля: образовательная цель, что играет за тебя, что ограничивает выбор, полнота анкеты |
-| 3. Рекомендации | Программы с процентом совпадения и объяснением «почему подходит» человеческим языком |
-| 4. Сравнение | До трёх вариантов рядом по 13 параметрам, с пометкой, где каждый выигрывает, и коротким выводом |
-| 5. План | Персональный roadmap по фазам «Сейчас → Подготовка → Подача → Финал» с одним выделенным следующим шагом и отметкой прогресса |
+| 1. Profile | An 8-screen questionnaire: education stage, interests, school system and scores, languages, exams, achievements, countries, budget, and priorities. Each achievement records not only its scale and result but also its **type**: a research paper, a conference talk, a patent, or a lab internship each carry different weights. Hackathons are split by format (classic 24–48 hours, online, corporate, themed, CTF), and competitions by type (competitive programming, research papers, case championships, pitch sessions). The scale labels match the type of competition: not "school-level," but "local: within a school or university" |
+| 2. Diagnosis | A profile summary: educational goal, what works in the user's favor, what limits their choices, and how complete the questionnaire is |
+| 3. Recommendations | Programs with a match percentage and an explanation of "why it fits," written in plain language |
+| 4. Comparison | Up to three options side by side across 13 parameters, marking where each one wins, with a short conclusion |
+| 5. Plan | A personal roadmap in phases "Now → Preparation → Application → Final," with one highlighted next step and progress tracking |
 
-Плюс детальный разбор каждой программы: раскладка процента совпадения по семи
-критериям, оценка шансов **с разбором по пунктам** («ЕНТ: 112 при ориентире 90»),
-перечень пробелов, деньги, требования и периоды подачи со ссылкой на официальный сайт.
+There is also a detailed breakdown for each program: the match percentage split across seven criteria, a chance estimate **itemized by factor** ("ENT: 112 against a benchmark of 90"), a list of gaps, costs, requirements, and application periods with a link to the official site.
 
-Четыре раздела усиливают маршрут и доступны с любого экрана:
+Four sections strengthen the route and are available from any screen:
 
-| Раздел | Что делает |
+| Section | What it does |
 | --- | --- |
-| 💰 Стипендии | Подбор из 15 стипендий и грантов под профиль, с объяснением и списком незакрытых требований |
-| 🗓 Календарь | Периоды подачи программ, стипендий и экзаменов по месяцам; звёздочкой отмечаются напоминания |
-| 🚀 Активности | Что добавить в заявку, тремя группами: документы заявки, академическая часть, опыт и люди. Список строится от пробелов в профиле, а не из общего каталога |
-| ✍️ Тексты заявки | Разбор мотивационного эссе и study plan по требованиям приёмных комиссий: что ищут, что уже закрыто и что сделать с каждым незакрытым пунктом |
-| 👤 Аккаунт | Имя, фамилия, год рождения и фото. Вход по почте и паролю, смена пароля. Работает без сервера: пароль не хранится, только соль и SHA-256 от неё с паролем |
-| ★ Избранное | Сохранённые программы в одном месте |
+| 💰 Scholarships | Matches 15 scholarships and grants to the profile, with explanations and a list of unmet requirements |
+| 🗓 Calendar | Application periods for programs, scholarships, and exams, by month; a star marks reminders |
+| 🚀 Activities | What to add to an application, in three groups: application documents, academic work, and experience and people. The list is built from gaps in the profile, not from a generic catalog |
+| ✍️ Application texts | A review of a motivation essay and study plan against admissions committee requirements: what they look for, what is already covered, and what to do about each missing item |
+| 👤 Account | Name, surname, birth year, and photo. Sign-in with email and password, and password change. Works without a server: the password is never stored, only a salt and the SHA-256 of the salt combined with the password |
+| ★ Favorites | Saved programs in one place |
 
-### Аудитория
+### Audience
 
-Ученик 10–11 класса или выпускник из Казахстана, поступающий на бакалавриат —
-внутри страны или за рубежом, включая учеников **НИШ и IB**. Демо-база подобрана
-под эту аудиторию — 336 программ в 23 странах, примерно по 15 на страну:
+A 10th–11th grade student or graduate from Kazakhstan applying to a bachelor's program — domestically or abroad, including **NIS and IB** students. The demo database is built for this audience: 336 programs in 23 countries, roughly 15 per country:
 
-- **Казахстан** (24 программы) и **Россия** (15), **Грузия** (12);
-- **Турция** (15) и **ОАЭ** (12);
-- **Европа:** Чехия, Польша, Венгрия, Германия, Австрия, Нидерланды, Италия,
-  Испания, Франция, Великобритания (147);
-- **Азия:** Китай, Гонконг, Япония, Корея, Сингапур, Малайзия (80);
-- **Америка:** США (15) и Канада (15).
+- **Kazakhstan** (24 programs) and **Russia** (15), **Georgia** (12);
+- **Turkey** (15) and **UAE** (12);
+- **Europe:** Czechia, Poland, Hungary, Germany, Austria, the Netherlands, Italy, Spain, France, the United Kingdom (147);
+- **Asia:** China, Hong Kong, Japan, Korea, Singapore, Malaysia (80);
+- **Americas:** the USA (15) and Canada (15).
 
-У каждой страны есть справка «зачем эта страна» — чем она интересна абитуриенту
-из Казахстана (бесплатное обучение в Германии, Diritto allo Studio в Италии,
-GKS в Корее, Stipendium Hungaricum в Венгрии, PGWP в Канаде) — со ссылкой
-на официальный портал. Она видна строкой на карточке программы и блоком
-на её странице.
+Each country has a briefing on why it's worth considering for an applicant from Kazakhstan — free tuition in Germany, Diritto allo Studio in Italy, GKS in Korea, Stipendium Hungaricum in Hungary, PGWP in Canada — with a link to the official portal. It appears as a line on the program card and as a block on the program's page.
 
-## 3. Что делает продукт персональным
+## 3. What makes the product personal
 
-Ничего не зашито «в лоб»: **всё, что видит пользователь, выводится из профиля**.
-Меняешь бюджет, страну, интерес или экзамен — пересчитываются и рекомендации,
-и объяснения, и план, и следующий шаг. Продукт показывает это явно: после правки
-ответа всплывает уведомление вида «Подбор обновился: 2 новых варианта в топ-3»
-с конкретным списком изменений.
+Nothing is hard-coded. **Everything the user sees is derived from the profile.** Change the budget, country, interest, or exam, and the recommendations, explanations, plan, and next step are all recalculated. The product makes this explicit: after an edit, a notification appears, such as "Matches updated: 2 new options in the top 3," with a specific list of what changed.
 
-Быстрая правка условий доступна прямо на экране рекомендаций — блок
-«Поменять условия и увидеть разницу», без возврата в анкету.
+A quick-edit block on the recommendations screen — "Change conditions and see the difference" — lets users adjust settings without going back to the questionnaire.
 
-**Достижения меняют результат механически, а не косметически.** У каждой
-программы есть параметр `holistic` (1–5) — насколько вуз читает заявку целиком,
-а не только баллы. Добавленная олимпиада, хакатон, исследование или волонтёрство:
+**Achievements change the results mechanically, not cosmetically.** Each program has a `holistic` parameter (1–5), which measures how thoroughly the university reads an application as a whole rather than relying only on scores. Adding an olympiad, hackathon, research project, or volunteer experience:
 
-- поднимает в выдаче программы с холистическим приёмом и опускает те, где решают
-  только экзамены (этого не происходит для программ с `holistic = 1`);
-- меняет вклад критерия «Достижения» в раскладку процента;
-- добавляет пункт в разбор шансов;
-- перестраивает план: шаг «внести достижения» исчезает, а вместо закрытого
-  пробела предлагается следующий по важности.
+- raises programs with holistic admissions in the ranking and lowers those where only exams count (this does not happen for programs with `holistic = 1`);
+- changes the contribution of the "Achievements" criterion to the match percentage;
+- adds an item to the chance breakdown;
+- rebuilds the plan: the "add achievements" step disappears, and the next most important gap is suggested instead.
 
-Это проверяется тестами (`src/engine/__tests__/personalization.test.ts`).
+This is covered by tests (`src/engine/__tests__/personalization.test.ts`).
 
-**Стиль общения** выбирается в анкете: дружеский, наставник, тренер или деловой.
-Он меняет только формулировки (`src/engine/tone.ts`) — никогда не подбор программ
-и не оценку шансов.
+**Communication style** is chosen in the questionnaire: friendly, mentor, coach, or business. It changes only the wording (`src/engine/tone.ts`) — never the program matching or the chance estimate.
 
-## 4. Как работает подбор
+## 4. How matching works
 
-Ядро — **прозрачный объяснимый движок**, а не чёрный ящик. Итоговый процент
-совпадения складывается из шести критериев с фиксированными весами:
+The core is a **transparent, explainable engine**, not a black box. The overall match percentage is the sum of six criteria with fixed weights:
 
-| Критерий | Вес | Что оценивает |
+| Criterion | Weight | What it evaluates |
 | --- | --- | --- |
-| Направление | 26 | Совпадение программы с интересами; главное направление весит больше |
-| Проходимость | 20 | Разрыв между профилем и требованиями: ЕНТ, IELTS/TOEFL, SAT, средний балл или диплом IB, портфолио, внутренние испытания |
-| Бюджет | 17 | Стоимость обучения против бюджета; наличие гранта и запас по бюджету |
-| География | 13 | Страна в списке пользователя; насколько она близка, если переезд разрешён |
-| Язык | 9 | Язык обучения против языков пользователя и уровня английского |
-| Достижения | 9 | Сила и профильность портфолио, домноженные на то, насколько эта программа вообще смотрит на заявку целиком |
-| Приоритеты | 6 | Стоимость, репутация, трудоустройство, близость к дому, сообщество |
+| Field of study | 26 | How well the program matches the interests; the main field counts for more |
+| Admissibility | 20 | The gap between the profile and the requirements: ENT, IELTS/TOEFL, SAT, GPA or IB diploma, portfolio, internal entrance tests |
+| Budget | 17 | Tuition cost against the budget; presence of a grant and room within the budget |
+| Geography | 13 | Whether the country is on the user's list, and how close it is if relocation is allowed |
+| Language | 9 | Language of instruction against the user's languages and English level |
+| Achievements | 9 | The strength and relevance of the portfolio, multiplied by how thoroughly the program reviews the application as a whole |
+| Priorities | 6 | Cost, reputation, employment, proximity to home, community |
 
-Две детали, которые заметно влияют на качество выдачи:
+Several details noticeably affect the quality of results:
 
-1. **Направление работает как ворота, а не как ещё один критерий.** Дешёвая
-   программа рядом с домом не становится подходящей, если она не про то, чем
-   человек хочет заниматься. Остальные критерии домножаются на коэффициент
-   релевантности `0.25 + 0.75 × совпадение_по_направлению`, поэтому нерелевантные
-   программы не всплывают наверх за счёт бюджета и географии.
-2. **Готовность к переезду — жёсткое ограничение, а не предпочтение.** Если человек
-   не может уехать, программа в другой стране для него не существует, каким бы высоким
-   ни было совпадение по остальным критериям, поэтому она отсекается фильтром, а не
-   понижающим коэффициентом.
-3. **Проход впритык отличается от прохода с запасом.** Если балл ровно дотягивает
-   до порога, критерий даёт 0.85, а не 1.0. Так варианты, где пользователь проходит
-   уверенно, отделяются от пограничных.
-4. **Баллы НИШ и IB приводятся к общей шкале.** Требования вузов в демо-базе
-   записаны в привычной казахстанской шкале, поэтому итоговый балл НИШ (0–100) и
-   диплом IB (24–45) пересчитываются в пятибалльную (`src/engine/academics.ts`),
-   а не сравниваются напрямую. Там, где вуз принимает IB напрямую, сравнение идёт
-   по баллам диплома. Сданный TOEFL засчитывается там, где вуз указал порог по IELTS.
+1. **Field of study works as a gate, not as one more criterion.** A cheap program near home doesn't become a match if it isn't about what the person wants to study. All other criteria are multiplied by a relevance coefficient, `0.25 + 0.75 × field_match`, so irrelevant programs can't rise to the top on budget and geography alone.
+2. **Willingness to relocate is a hard constraint, not a preference.** If the person can't move, a program in another country doesn't exist for them, however high its score on other criteria. It is removed by a filter, not by a lowering coefficient.
+3. **Barely passing is different from passing with room to spare.** If a score just reaches the threshold, the criterion gives 0.85 rather than 1.0. This separates options where the user passes comfortably from borderline ones.
+4. **NIS and IB scores are converted to a common scale.** Admission requirements in the demo database are written on the familiar Kazakhstani scale, so the NIS final score (0–100) and the IB diploma (24–45) are converted to a five-point scale (`src/engine/academics.ts`) rather than compared directly. Where a university accepts IB directly, the comparison is made on the diploma score. A passed TOEFL counts toward a university's IELTS threshold where one is specified.
 
-Объяснения генерируются из той же раскладки: каждое предложение в карточке
-привязано к конкретному сработавшему критерию и подставляет реальные числа из
-профиля («Твой ЕНТ 112 выше ориентира 95 баллов»).
+Explanations are generated from the same breakdown: each sentence on a card is tied to a specific criterion that applied and includes real numbers from the profile ("Your ENT score of 112 is above the benchmark of 95").
 
-**Оценка шансов** считается отдельно, только по критерию проходимости, и всегда
-подписана как ориентировочная, с перечнем того, что нужно закрыть до подачи.
-В карточке программы она раскрывается **по пунктам**: каждый фактор («ЕНТ»,
-«Английский», «Успеваемость», «Портфолио», «Достижения») показан со своим
-вердиктом и реальными числами из профиля. Формулировки специально не содержат
-вероятностей и обещаний поступления.
+**The chance estimate** is calculated separately, using only the admissibility criterion. It is always labeled as approximate and lists what must be addressed before applying. On the program card it expands **itemized by factor**: each factor (ENT, English, academic performance, portfolio, achievements) shows its own verdict and the actual numbers from the profile. The wording deliberately contains no probabilities and no promises of admission.
 
-## 5. Честность данных
+## 5. Data honesty
 
-Кейс запрещает показывать вымышленную точность и неподтверждённые дедлайны,
-поэтому:
+The case prohibits showing fabricated precision and unconfirmed deadlines, so:
 
-- база из **336 программ** отмечена в коде и в интерфейсе как демонстрационная
-  (`src/data/programs/`, константа `DATA_DISCLAIMER`);
-- **у каждой программы и каждой стипендии есть ссылка на официальную страницу** —
-  она видна в карточке, в сравнении, в плане, в календаре и в разборе;
-- проходные баллы — **ориентиры**, а не официальные пороги: они округлены и
-  приведены для прототипа, поэтому каждая цифра сопровождается ссылкой на
-  первоисточник. Это проверяется тестом: у каждой программы обязателен https-источник;
-- дедлайны указаны **периодами** («декабрь — февраль»), а не конкретными датами,
-  с пометкой «ориентировочно» и кнопкой «сверить» на сайт вуза;
-- первым же шагом в roadmap стоит задача «Сверить требования с официальным сайтом»;
-- если баллов экзаменов нет, оценка шансов честно становится осторожнее, а не
-  подставляет выдуманные значения.
+- the database of **336 programs** is marked as demonstration data in the code and the interface (`src/data/programs/`, constant `DATA_DISCLAIMER`);
+- **every program and every scholarship has a link to its official page** — it appears on the card, in the comparison, in the plan, in the calendar, and in the breakdown;
+- passing scores are **benchmarks**, not official thresholds. They are rounded and given for the prototype, so each figure comes with a link to its primary source. A test enforces this: every program must have an https source;
+- deadlines are given as **periods** ("December – February"), not specific dates, marked "approximate," with a "verify" button linking to the university's site;
+- the first task in the roadmap is "Check the requirements against the official website";
+- if exam scores are missing, the chance estimate becomes more cautious rather than filling in invented values.
 
-## 6. Стек и архитектура
+## 6. Stack and architecture
 
-- **React 19 + TypeScript + Vite** — статическая сборка, деплой без сервера.
-- **Двуязычный интерфейс (қазақша / русский)** без библиотеки i18n: тексты
-  движка — парные строки `L('по-русски', 'қазақша')` (`src/i18n/lang.ts`), тексты
-  компонентов — тот же `L` через React-контекст (`src/i18n/LangContext.tsx`).
-  Язык читается в момент отрисовки, а не при загрузке модуля, поэтому переключение
-  пересобирает и рекомендации, и план, и объяснения. Справочники отдают подписи
-  через `Proxy`, поэтому места вызова вида `FIELD_LABEL[id]` не менялись.
-- **Тёмная тема на CSS-переменных:** цвета Tailwind объявлены как
-  `rgb(var(--c-*) / <alpha-value>)`, а класс `.dark` переопределяет переменные.
-  В компонентах нет ни одного варианта `dark:` — тема не может разъехаться со светлой.
-- **Tailwind CSS 3** — авторская дизайн-система в `tailwind.config.js`: палитра,
-  типографика, радиусы, тени, анимации. Готовые UI-киты не использовались,
-  все компоненты написаны в проекте (`src/components/ui.tsx`).
-- **react-router-dom (HashRouter)** — реальные URL для каждого экрана, работают
-  на GitHub Pages без серверных правил переписывания.
-- **localStorage** — сохранение профиля, прогресса, избранного и сравнения.
-  Все обращения обёрнуты в try/catch: в приватном режиме браузера продукт
-  продолжает работать, просто без сохранения.
+- **React 19 + TypeScript + Vite** — a static build, deployable without a server.
+- **Bilingual interface (Kazakh / Russian)** without an i18n library. Engine texts are paired strings `L('in Russian', 'in Kazakh')` (`src/i18n/lang.ts`); component texts use the same `L` through a React context (`src/i18n/LangContext.tsx`). The language is read at render time, not at module load, so switching rebuilds the recommendations, the plan, and the explanations. Dictionaries return labels through a `Proxy`, so call sites like `FIELD_LABEL[id]` did not need to change.
+- **Dark theme on CSS variables:** Tailwind colors are declared as `rgb(var(--c-*) / <alpha-value>)`, and the `.dark` class overrides the variables. No component contains a single `dark:` variant, so the theme cannot drift out of sync with the light one.
+- **Tailwind CSS 3** — a custom design system in `tailwind.config.js`: palette, typography, radii, shadows, animations. No ready-made UI kits were used; all components are written in the project (`src/components/ui.tsx`).
+- **react-router-dom (HashRouter)** — real URLs for every screen that work on GitHub Pages without server rewrite rules.
+- **localStorage** — saves the profile, progress, favorites, and comparison. All access is wrapped in try/catch: in a private browsing window the product keeps working, just without saving.
 
 ```
 src/
-  types.ts              доменная модель
+  types.ts              domain model
   data/
-    taxonomy.ts         справочники: направления, страны, языки, бюджеты, экзамены, достижения
-    programs/           демо-база из 105 программ с источниками, по регионам
-    scholarships.ts     15 стипендий и грантов с источниками
-    activities.ts       24 идеи активностей: эссе, CV, волонтёрство, хакатоны, исследования
+    taxonomy.ts         reference data: fields, countries, languages, budgets, exams, achievements
+    programs/           demo database of 105 programs with sources, by region
+    scholarships.ts     15 scholarships and grants with sources
+    activities.ts       24 activity ideas: essays, CV, volunteering, hackathons, research
   i18n/
-    lang.ts             язык движка и функция L(ru, kk)
-    LangContext.tsx     язык интерфейса для компонентов
+    lang.ts             engine language and the L(ru, kk) function
+    LangContext.tsx     interface language for components
   engine/
-    match.ts            веса, скоринг, генерация объяснений, оценка шансов
-    academics.ts        НИШ, IB и TOEFL в общей шкале
-    achievements.ts     вес достижений: уровень, награда, свежесть, профильность
-    diagnosis.ts        резюме профиля: сильные стороны, ограничения, цель
-    roadmap.ts          сборка персонального плана и выбор следующего шага
-    scholarships.ts     подбор стипендий и список незакрытых требований
-    activities.ts       подбор активностей от пробелов в профиле
-    calendar.ts         календарь периодов подачи и экзаменов
-    tone.ts             стиль общения: меняет только формулировки
-    ai.ts               необязательный слой LLM (по умолчанию выключен)
+    match.ts            weights, scoring, explanation generation, chance estimate
+    academics.ts        NIS, IB, and TOEFL on a common scale
+    achievements.ts     achievement weight: level, award, recency, relevance
+    diagnosis.ts        profile summary: strengths, constraints, goal
+    roadmap.ts          building the personal plan and choosing the next step
+    scholarships.ts     scholarship matching and the list of unmet requirements
+    activities.ts       activity matching from profile gaps
+    calendar.ts         calendar of application and exam periods
+    tone.ts             communication style: changes only the wording
+    ai.ts               optional LLM layer (disabled by default)
   store/
-    app.tsx             состояние приложения, пересчёт, определение изменений
-    storage.ts          безопасная работа с localStorage
-  components/           дизайн-система, оболочка, навигация, карточки
-  screens/              экраны маршрута
+    app.tsx             application state, recalculation, change detection
+    storage.ts          safe localStorage access
+  components/           design system, shell, navigation, cards
+  screens/              route screens
 ```
 
-Разделение намеренное: `engine/` — чистые функции без React, их можно тестировать
-и переиспользовать; `screens/` только отображают результат. Ни один экран не
-содержит логики подбора.
+The separation is intentional: `engine/` contains pure functions without React, so they can be tested and reused; `screens/` only display the result. No screen contains matching logic.
 
-## 7. AI и внешние сервисы
+## 7. AI and external services
 
-**Что используется как «AI»:** объяснимый weighted-scoring движок с генерацией
-объяснений на естественном языке. Кейс прямо запрещает ограничиваться обычным
-AI-чатом, и для продукта, где пользователь принимает решение о своём будущем,
-детерминированная и проверяемая логика — сознательный выбор: каждое число можно
-раскрыть и объяснить, вывод повторяем и не зависит от доступности внешнего API.
+**What is used as "AI":** an explainable weighted-scoring engine with natural-language explanations. The case explicitly rules out limiting the solution to a standard AI chat, and for a product where the user makes decisions about their future, deterministic and verifiable logic is a deliberate choice: every number can be opened and explained, the result is repeatable, and it does not depend on an external API being available.
 
-**Необязательный слой LLM** (`src/engine/ai.ts`) переписывает текст диагностики
-более живым языком. Он:
+**The optional LLM layer** (`src/engine/ai.ts`) rewrites the diagnosis text in more natural language. It:
 
-- по умолчанию **выключен** (`VITE_LLM_ENABLED=false`);
-- не принимает решений и не добавляет фактов — получает готовую диагностику;
-- при недоступности, таймауте (6 с) или ошибке молча откатывается на текст движка,
-  поэтому сценарий не ломается ни при каких условиях;
-- обращается к **серверному прокси** через `VITE_LLM_ENDPOINT`: ключ на клиенте
-  не хранится и в репозиторий не попадает.
+- is **disabled** by default (`VITE_LLM_ENABLED=false`);
+- makes no decisions and adds no facts — it receives the finished diagnosis;
+- silently falls back to the engine's text on unavailability, a timeout (6 s), or any error, so the flow never breaks;
+- calls a **server-side proxy** via `VITE_LLM_ENDPOINT`: the key is never stored on the client and never enters the repository.
 
-В задеплоенном демо слой выключен: публичная статика — не место для ключей.
+The deployed demo has this layer turned off: a public static site is not the place for keys.
 
-**Внешние API и данные:** нет. Демо-база статическая, продукт работает офлайн
-после первой загрузки. Единственный внешний ресурс — шрифт Inter с Google Fonts,
-с системным фолбэком в стеке шрифтов.
+**External APIs and data:** none. The demo database is static, and the product works offline after the first load. The only external resource is the Inter font from Google Fonts, with a system font fallback in the font stack.
 
-**Готовые компоненты и библиотеки:** React, React DOM, react-router-dom, Vite,
-Tailwind CSS, autoprefixer, PostCSS, TypeScript, oxlint. UI-китов (MUI, shadcn,
-Ant и подобных) нет — все компоненты авторские.
+**Ready-made components and libraries:** React, React DOM, react-router-dom, Vite, Tailwind CSS, autoprefixer, PostCSS, TypeScript, oxlint. There are no UI kits (MUI, shadcn, Ant, or similar) — all components are custom.
 
-## 8. Запуск
+## 8. Running the project
 
 ```bash
 npm install
 npm run dev        # http://localhost:5173
 ```
 
-Другие команды:
+Other commands:
 
 ```bash
-npm run build      # проверка типов + production-сборка в dist/
-npm run preview    # локальный просмотр production-сборки
-npm run test       # 66 тестов движка (vitest)
+npm run build      # type check + production build in dist/
+npm run preview    # local preview of the production build
+npm run test       # 66 engine tests (vitest)
 npm run lint       # oxlint
 ```
 
-Тесты покрывают то, что важнее всего не сломать: диапазон и порядок баллов,
-отсечение нерелевантных программ, реакцию выдачи на смену бюджета и направления,
-обязательное наличие объяснения у каждой рекомендации, отсутствие обещаний
-поступления в тексте оценки шансов, наличие https-источника у каждой программы
-и стипендии, пересборку roadmap при изменении профиля, пересчёт баллов НИШ, IB и
-TOEFL, порядок и отсутствие дублей в календаре, а также то, что **добавленное
-достижение действительно меняет топ-3 и план**, но не влияет на программы, где
-решают только экзамены. Отдельный тест проверяет, что переключение на казахский
-меняет тексты, но не меняет сам подбор и проценты. Новые тесты покрывают разбор
-эссе и study plan (готовность растёт только вместе с закрытыми требованиями,
-частичный ответ считается ровно наполовину, важность документа зависит от
-подборки), вес вида достижения (научная статья весит больше школьной работы того
-же масштаба), различие трёх готовых примеров по составу выдачи и наличие
-справки с https-источником у каждой страны базы. Ещё одна группа проверяет
-подбор стипендий (стипендия за творческое портфолио не попадает в IT-профиль,
-у стипендий с малой квотой есть честное предупреждение) и экзамен CSCA:
-профессиональный китайский появляется только на китаеязычном треке, физика —
-у технарей, химия — у медиков, а сам шаг попадает в план, когда в анкете
-выбран Китай.
+The tests cover what matters most not to break: the range and ordering of scores, filtering of irrelevant programs, how results respond to a change in budget and field, the requirement that every recommendation has an explanation, the absence of admission promises in the chance text, an https source for every program and scholarship, rebuilding the roadmap when the profile changes, conversion of NIS, IB, and TOEFL scores, the order and absence of duplicates in the calendar, and the fact that **an added achievement really does change the top 3 and the plan**, but does not affect programs where only exams matter. A separate test checks that switching to Kazakh changes the texts but not the matching or the percentages. Newer tests cover the review of essays and study plans (readiness grows only together with closed requirements, a partial answer counts as exactly half, and a document's importance depends on the selection), the weight of achievement types (a scientific paper outweighs a school project of the same scale), the difference in results between the three ready-made examples, and the presence of a briefing with an https source for each country in the database. Another group covers scholarship matching (a creative-portfolio scholarship does not fall into an IT profile; scholarships with small quotas carry an honest warning) and the CSCA exam: professional Chinese appears only on the Chinese-language track, physics only for engineers, chemistry only for medical applicants, and the step enters the plan when China is selected in the questionnaire.
 
-Необязательный слой LLM настраивается через `.env` (шаблон — `.env.example`).
-Файл `.env` в `.gitignore`: ключи и секреты в репозиторий не коммитятся.
+The optional LLM layer is configured through `.env` (template: `.env.example`). The `.env` file is in `.gitignore`: keys and secrets are not committed to the repository.
 
-### Деплой
+### Deployment
 
-GitHub Pages через Actions (`.github/workflows/deploy.yml`). Базовый путь
-подставляется автоматически из имени репозитория переменной `VITE_BASE`.
-Включить один раз: **Settings → Pages → Source → GitHub Actions**.
+GitHub Pages via Actions (`.github/workflows/deploy.yml`). The base path is set automatically from the repository name through the `VITE_BASE` variable. Enable once: **Settings → Pages → Source → GitHub Actions**.
 
-## 9. Тестовый сценарий для жюри
+## 9. Test scenario for judges
 
-1. Открыть демо и нажать **«Посмотреть на готовом примере»** — загрузится профиль
-   ученицы 11 класса НИШ: IT и наука, ЕНТ 112, итоговый балл НИШ 88, английский B2,
-   три достижения, бюджет до $6 000, приоритеты «низкая стоимость» и «работа после
-   выпуска».
-2. На экране **Диагностика** посмотреть цель, сильные стороны и ограничения.
-3. Перейти в **Рекомендации**: у каждой карточки написано, что совпало, что стоит
-   учесть, сколько стоит год с проживанием и какие ориентировочные шансы.
-4. Открыть **«Разбор»** у любой программы: раскладка процента по шести критериям,
-   пробелы до требований, ссылка на официальный сайт.
-5. **Проверка реакции на изменение данных.** На экране рекомендаций раскрыть
-   «Поменять условия и увидеть разницу» и переключить бюджет на **«Только грант»**
-   или главное направление на **«Медицина»**. Внизу появится уведомление с тем,
-   что именно изменилось в топ-3; список и объяснения пересобираются.
-6. Отметить два варианта кнопкой **«Сравнить»** и открыть **Сравнение**: таблица
-   по 13 параметрам, зелёная точка отмечает выигрыш по строке, сверху — короткий вывод.
-7. Открыть **План**: сверху выделено одно следующее действие с объяснением «зачем это».
-   Нажать «Отметить выполненным» — следующий шаг и прогресс обновятся.
-8. **Проверка реакции на достижения.** «Изменить анкету» → шаг **«Достижения»** →
-   добавить, например, республиканскую олимпиаду с золотом. После сохранения
-   всплывёт уведомление, в топ-3 поднимутся вузы с холистическим приёмом, в разборе
-   шансов появится пункт «Достижения», а из плана исчезнет шаг «внести достижения».
-9. Открыть разделы над основным путём: **Стипендии** (подбор с пробелами),
-   **Календарь** (периоды по месяцам, звёздочка = напоминание), **Активности**
-   (что добавить в заявку), **Избранное**.
-10. **Казахский язык и тёмная тема:** в шапке переключатель `ҚАЗ / РУС` и кнопка
-    темы. Переключение языка меняет и интерфейс, и объяснения, и план — но не
-    состав подбора и не проценты.
-11. Проверить полный путь с нуля: **«Изменить анкету» → пройти 8 шагов**.
-12. **Мобильная версия:** открыть на телефоне или сузить окно до 390 px — путь
-    работает целиком, снизу появляется навигация по пяти шагам.
+1. Open the demo and click **"View the ready-made example."** This loads the profile of an 11th-grade NIS student: IT and science, ENT 112, NIS final score 88, English B2, three achievements, a budget up to $6,000, and priorities "low cost" and "employment after graduation."
+2. On the **Diagnosis** screen, review the goal, strengths, and limitations.
+3. Go to **Recommendations**: each card states what matched, what to take into account, the cost of a year with living expenses, and the approximate chances.
+4. Open **"Breakdown"** for any program: the match percentage across six criteria, the gaps to the requirements, and a link to the official site.
+5. **Check the reaction to data changes.** On the recommendations screen, expand "Change conditions and see the difference" and switch the budget to **"Grant only"** or the main field to **"Medicine."** A notification appears at the bottom with what changed in the top 3; the list and explanations are rebuilt.
+6. Mark two options with the **"Compare"** button and open **Comparison**: a table of 13 parameters, a green dot marks the winner in each row, and a short conclusion sits at the top.
+7. Open **Plan**: one next action is highlighted at the top, with an explanation of "why it matters." Click "Mark as done": the next step and the progress update.
+8. **Check the reaction to achievements.** Click "Edit questionnaire" → the **"Achievements"** step → add, for example, a republic-level olympiad with gold. After saving, a notification appears, universities with holistic admissions rise in the top 3, an "Achievements" item appears in the chance breakdown, and the "add achievements" step disappears from the plan.
+9. Open the sections above the main path: **Scholarships** (matching with gaps), **Calendar** (periods by month; star = reminder), **Activities** (what to add to the application), **Favorites**.
+10. **Kazakh language and dark theme:** the header has the `ҚАЗ / РУС` switch and the theme button. Switching the language changes the interface, the explanations, and the plan — but not the composition of the matching or the percentages.
+11. Check the full path from scratch: **"Edit questionnaire" → go through all 8 steps.**
+12. **Mobile version:** open on a phone or narrow the window to 390 px — the full path works, and a five-step navigation appears at the bottom.
 
-Состояния интерфейса, которые стоит проверить: пустой подбор (в анкете оставить
-одну страну и «Только грант» — появится честное объяснение вместо пустого экрана),
-переход на экран сравнения без выбранных вариантов, план с полностью отмеченными шагами.
+Interface states worth checking: an empty matching result (in the questionnaire, leave one country and "Grant only" — a clear explanation appears instead of a blank screen), opening the comparison screen with nothing selected, and a plan with all steps marked as done.
 
-## 10. Ограничения прототипа
+## 10. Prototype limitations
 
-- База программ демонстрационная: 336 программ, проходные баллы округлены и даны
-  как ориентиры, дедлайны — периоды. Для продакшена нужен парсинг официальных
-  источников и регулярная сверка.
-- Оценка шансов не учитывает конкурс конкретного года и качество мотивационного
-  письма. Разбор эссе и study plan — это сверка с требованиями по отметкам
-  человека, а не чтение самого текста.
-- Состав предметов CSCA собран по открытым требованиям и зависит от вуза:
-  в интерфейсе он помечен как ориентир со ссылкой на campuschina.org.
-- **Аккаунт локальный.** Регистрация, вход и смена пароля работают, но всё лежит
-  в этом браузере: писем со ссылкой для сброса отправить неоткуда, и на другом
-  устройстве аккаунта не будет. Пароль не хранится — только соль и SHA-256 от
-  соли с паролем, — но это защита от чтения хранилища, а не полноценная
-  авторизация. Настоящая нужна вместе с сервером, и интерфейс говорит об этом прямо.
-- Сессия входа живёт в памяти: после перезагрузки страницы пароль спросят снова.
-  «Запомнить меня» без сервера означало бы хранить признак входа рядом с хешем,
-  и тогда пароль перестал бы что-либо защищать.
-- **Напоминания работают без сервера:** отметка звёздочкой подсвечивает событие в
-  календаре и сохраняется в браузере. Писем и push-уведомлений в прототипе нет,
-  и в интерфейсе это сказано прямо.
-- **Мобильное приложение — в планах.** В шапке и на главном экране стоит плашка
-  «Приложение — скоро»: честнее, чем кнопка, которая никуда не ведёт.
-- На казахский переведены интерфейс и все тексты движка. **Данные** — названия
-  университетов, описания программ, стипендий и активностей — остаются на русском:
-  это следующий шаг, а не заявленная возможность.
-- Слой LLM в демо выключен, серверного прокси в проекте нет.
-- Тестами покрыт движок; интерфейс проверялся прогоном полного сценария в
-  headless-браузере на 1200 px и 390 px, в светлой и тёмной теме, на обоих языках.
+- The program database is demonstration data: 336 programs, passing scores are rounded and given as benchmarks, deadlines are periods. Production use requires parsing official sources and regular verification.
+- The chance estimate does not account for a given year's competition or the quality of a motivation letter. The review of essays and study plans compares the person's own marks against requirements; it does not read the text itself.
+- The CSCA subject list is compiled from open requirements and varies by university. The interface marks it as a guideline with a link to campuschina.org.
+- **The account is local.** Registration, sign-in, and password change work, but everything is stored in this browser: there is nowhere to send a password reset email, and the account will not exist on another device. The password is never stored — only a salt and the SHA-256 of the salt combined with the password. This protects against reading the storage, but it is not full authorization. Real authorization requires a server, and the interface says so directly.
+- The sign-in session lives in memory: after a page reload the password will be requested again. "Remember me" without a server would mean storing a sign-in marker next to the hash, and then the password would protect nothing.
+- **Reminders work without a server:** starring an event highlights it in the calendar and is saved in the browser. The prototype has no emails or push notifications, and the interface states this directly.
+- **A mobile app is planned.** The header and home screen show an "App — coming soon" banner: more honest than a button that leads nowhere.
+- The interface and all engine texts are translated into Kazakh. **The data** — university names, descriptions of programs, scholarships, and activities — remains in Russian. That is the next step, not a delivered feature.
+- The LLM layer is disabled in the demo; the project has no server-side proxy.
+- The engine is covered by tests; the interface was checked by running the full scenario in a headless browser at 1200 px and 390 px, in light and dark themes, in both languages.
 
-## 11. Как собран проект
+## 11. How the project was built
 
-Проект написан с помощью Claude Code: архитектура, движок подбора, интерфейс,
-демо-база и тесты создавались в диалоге с моделью, решения принимались и
-проверялись участником команды. Это видно в истории коммитов — часть из них
-имеет соавторство Claude. Кейс разрешает использование LLM, и мы считаем
-правильным указать это явно, а не маскировать.
+The project was written with Claude Code: the architecture, the matching engine, the interface, the demo database, and the tests were created in a dialogue with the model, while decisions were made and verified by a team member. This is visible in the commit history — some commits list Claude as a co-author. The case allows the use of LLMs, and we consider it right to state this explicitly rather than hide it.
 
-## 12. Роли команды
+## 12. Team roles
 
-Команда: **luiqi**
+Team: **luiqi**
 
-| Участник | Роль | Зона ответственности |
+| Member | Role | Area of responsibility |
 | --- | --- | --- |
-| Ярмоленко Диана Дмитриевна | Lead Fullstack & AI Engineer | Бекенд, логика и ИИ |
-| Молдагали Жасмина Мейрманкызы | Frontend & UI/UX Developer | Фронтенд, интерфейс и питч |
-
+| Yarmolenko Diana Dmitrievna | Lead Fullstack & AI Engineer | Backend, logic, and AI |
+| Moldagali Zhasmina Meirmankyzy | Frontend & UI/UX Developer | Frontend, interface, and pitch |
