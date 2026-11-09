@@ -8,7 +8,6 @@ Submission code: `LOCUSCASE2`.
 The interface is available in **Kazakh and Russian**, with light and dark themes. It covers 336 programs in 23 countries, scholarship matching, a deadline calendar, feedback on motivation essays and study plans, and recommendations for extracurricular activities.
 
 - **Demo:** https://locus-hackathon-psi.vercel.app/
-- **Code:** https://github.com/yarmolenko08diana/LOCUS-HACKATHON
 - **Languages:** Kazakh and Russian. **Themes:** light, dark, and system default.
 
 ---
@@ -37,12 +36,12 @@ Four sections strengthen the route and are available from any screen:
 
 | Section | What it does |
 | --- | --- |
-| 💰 Scholarships | Matches 15 scholarships and grants to the profile, with explanations and a list of unmet requirements |
-| 🗓 Calendar | Application periods for programs, scholarships, and exams, by month; a star marks reminders |
-| 🚀 Activities | What to add to an application, in three groups: application documents, academic work, and experience and people. The list is built from gaps in the profile, not from a generic catalog |
-| ✍️ Application texts | A review of a motivation essay and study plan against admissions committee requirements: what they look for, what is already covered, and what to do about each missing item |
-| 👤 Account | Name, surname, birth year, and photo. Sign-in with email and password, and password change. Works without a server: the password is never stored, only a salt and the SHA-256 of the salt combined with the password |
-| ★ Favorites | Saved programs in one place |
+|  Scholarships | Matches 15 scholarships and grants to the profile, with explanations and a list of unmet requirements |
+|  Calendar | Application periods for programs, scholarships, and exams, by month; a star marks reminders |
+|  Activities | What to add to an application, in three groups: application documents, academic work, and experience and people. The list is built from gaps in the profile, not from a generic catalog |
+|  Application texts | A review of a motivation essay and study plan against admissions committee requirements: what they look for, what is already covered, and what to do about each missing item |
+|  Account | Name, surname, birth year, and photo. Sign-in with email and password, and password change. Works without a server: the password is never stored, only a salt and the SHA-256 of the salt combined with the password |
+|  Favorites | Saved programs in one place |
 
 ### Audience
 
